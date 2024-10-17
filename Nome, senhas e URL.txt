@@ -1,0 +1,19 @@
+- WA
+API Key:MxmvK1WIxmlpxOVC9fs_sPZTJc7CDfz6Q5ALF4Dp4L26
+Service Endpoint:https://api.au-syd.assistant.watson.cloud.ibm.com/instances/fdc33e72-b469-481a-99c0-c5d6ef7155e2
+Assistant ID:6a60018f-f724-4c81-9bfc-b50e44df9228
+
+
+- STT
+API Key: mgH-XmtL0VDcUprUtOWyAjf10txc-PwQDcp1HFN1xEGF
+Service Endpoint: https://api.au-syd.speech-to-text.watson.cloud.ibm.com/instances/a2fe12bf-4f2f-47ce-92e5-e7ed6c8efd10
+
+
+- TTS
+API Key: pbPm5k630-WyEu2Pq8QbnArrsXBTDhlzW37JdZnQI1LP
+Service Endpoint: https://api.au-syd.text-to-speech.watson.cloud.ibm.com/instances/d1b6c9ac-d8a4-49a0-9cef-01305fbe5abe
+
+
+- Telegram Receiver/ Sender
+Bot-Name: soltado_bot / @Diretoria_bot
+Token: 5724238044:AAE_6j8YOJ1gM1tXTn5Y02j4S6lV8M8SZ4U

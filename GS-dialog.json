@@ -1,0 +1,453 @@
+{
+  "intents": [
+    {
+      "intent": "FATOS_SOBRE_A_FOME",
+      "examples": [
+        {
+          "text": "desde quando a fome existe"
+        },
+        {
+          "text": "quero saber fatos sobre a fome"
+        },
+        {
+          "text": "quero saber oq era a fome"
+        },
+        {
+          "text": "quero saber oq foi a fome"
+        },
+        {
+          "text": "quero saber sobre a fome "
+        }
+      ],
+      "description": "fatos que as pessoas não saibam sobrea fome "
+    },
+    {
+      "intent": "IMPORTANCIA_DO_COMBATE_A_FOME",
+      "examples": [
+        {
+          "text": "a fome é ruim ?"
+        },
+        {
+          "text": "é importante o combate contra a fome"
+        },
+        {
+          "text": "o combate contra a fome pode ajudar no que ?"
+        },
+        {
+          "text": "pq temos que lutar contra a fome"
+        },
+        {
+          "text": "qual é a importância de acabar com a fome"
+        }
+      ],
+      "description": "a importancia de acabar com a fome"
+    },
+    {
+      "intent": "investimento_fome",
+      "examples": [
+        {
+          "text": "a fome bem investida pode resolver algum problema"
+        },
+        {
+          "text": "a fome pode resolver algum problema se investido corretamente"
+        },
+        {
+          "text": "é bom investir na fome"
+        },
+        {
+          "text": "oque investir na solução da fome"
+        },
+        {
+          "text": "podemos investir para acabar com a fome"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "METAS_DA_PARA_ACABAR_COM_A_FOME",
+      "examples": [
+        {
+          "text": "quais são as metas para acabar com a fome"
+        },
+        {
+          "text": "quais são seus motivos para acabar com a fome"
+        },
+        {
+          "text": "quais são seus planos para acabar com a fome"
+        },
+        {
+          "text": "quais são suas intençoes para acabar com a fome"
+        },
+        {
+          "text": "que ideias você tem para acabar com a fome"
+        }
+      ],
+      "description": "Ajudar as pessoas à entender nossas metas para erradicar a fome"
+    },
+    {
+      "intent": "pobresa_e_fome",
+      "examples": [
+        {
+          "text": "a fome e a pobreza andam juntas"
+        },
+        {
+          "text": "a fome e a pobreza são inimigas das pessoas ?"
+        },
+        {
+          "text": "a fome e a pobreza são ruim para a sociedade ?"
+        },
+        {
+          "text": "que tem relação com a pobreza e a fome"
+        },
+        {
+          "text": "se tem pobreza tem fome ?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "populacionais_mais_vulneráveis_à_fome",
+      "examples": [
+        {
+          "text": "a população mais vulnerável a fome"
+        },
+        {
+          "text": "população e a fome , quem são as pessoas mais atingidas"
+        },
+        {
+          "text": "quais são as pessoas mais vulneráveis para a fome"
+        },
+        {
+          "text": "quais são os grupos que estão mais na zona da fome"
+        },
+        {
+          "text": "quais são os problemas que ela causa para a população mais vulneravel"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "cpf",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "cpf",
+          "patterns": [
+            "(\\d{3}.\\d{3}.\\d{3}-\\d{2})",
+            "(\\d{3})(\\d{3})(\\d{3})(\\d{2})"
+          ]
+        }
+      ],
+      "fuzzy_match": false
+    },
+    {
+      "entity": "email",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "email",
+          "patterns": [
+            "\\b[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,}\\b"
+          ]
+        }
+      ],
+      "fuzzy_match": false
+    },
+    {
+      "entity": "nome",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "nome",
+          "patterns": []
+        }
+      ],
+      "fuzzy_match": false
+    },
+    {
+      "entity": "telefone",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "celular",
+          "patterns": [
+            "(\\d{2}) (\\d{5}-\\d{4})",
+            "(\\d{2}) (\\d{9})"
+          ]
+        }
+      ],
+      "fuzzy_match": false
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá, sou uma AI que auxiliara no entendimento do assunto \"A FOME\" ."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "\"Se você não souber oque perguntar temos esses exemplos( a importância do combate a fome, fatos sobre a fome , quais são os grupos mais vulneráveis a fome , quais são os benefícios de investir na solução da fome e metas para acabar com a fome)\"."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_2_1685923790800",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "fatos sobre a fome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Em 2020, entre 720 milhões e 811 milhões de pessoas em todo mundo estavam sofrendo de fome, cerca de 161 milhões a mais do quem em 2019."
+              },
+              {
+                "text": "Em 2020, impressionantes 2,4 bilhões de pessoas, ou mais de 30% da população mundial, estavam moderada ou severamente insegura alimentarmente, sem aceso regular alimentos adequados,"
+              },
+              {
+                "text": "Globalmente,149,2milhões de crianças com menos de 5 anos de idade, ou 22,0% do total, estavam sofrendo de retardo de crescimento (nanismo-baixa estatura para a idade) em2020."
+              },
+              {
+                "text": "Para alcançar a meta de uma redução de 5% no número de crianças com retardo de crescimento até 2025, a taxa atual de declínio anual - 2,1% - deve dobrar para 3,9%."
+              },
+              {
+                "text": "Em 2020,acaquexia(baixo peso para a estatura) afetou 45,4 milhões ou 6,7% das crianças com menos de 5 anos de idade."
+              },
+              {
+                "text": "A parcela de países sobre carregados por preços elevados de alimentos, que havia ido relativamente estável desde 2016, aumentou drasticamente de 16% em 2019 para 47% em 2020."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#FATOS_SOBRE_A_FOME",
+      "dialog_node": "node_10_1685855041727",
+      "previous_sibling": "node_4_1685856546250"
+    },
+    {
+      "type": "standard",
+      "title": "Como a fome está relacionada com a pobreza?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A fome e a pobreza estão intimamente relacionadas, e a pobreza é uma das principais causas da fome. A falta de recursos financeiros e acesso a oportunidades econômicas suficientes faz com que as pessoas vivam em condições de extrema pobreza, o que resulta em insegurança alimentar."
+              },
+              {
+                "text": "Aqui estão algumas maneiras pelas quais a fome está relacionada com a pobreza:"
+              },
+              {
+                "text": "Acesso limitado a alimentos: A pobreza muitas vezes significa falta de acesso a alimentos adequados. As pessoas que vivem em situação de pobreza podem não ter recursos financeiros suficientes para comprar alimentos nutritivos em quantidade adequada ou podem não ter acesso a mercados onde os alimentos estão disponíveis. Isso resulta em uma deficiência calórica e de nutrientes, levando à fome e à desnutrição."
+              },
+              {
+                "text": "Desigualdade socioeconômica: A pobreza e a fome muitas vezes estão ligadas à desigualdade socioeconômica. Em muitos casos, a falta de acesso a recursos, como terra, educação, saúde e oportunidades de trabalho decente, perpetua a pobreza e a insegurança alimentar em determinados grupos e comunidades."
+              },
+              {
+                "text": "Ciclo intergeracional da pobreza e da fome: A pobreza e a fome podem criar um ciclo vicioso que é transmitido de uma geração para outra. Crianças que crescem em condições de pobreza e fome têm maior probabilidade de enfrentar desnutrição e desenvolvimento físico e cognitivo prejudicado. Isso, por sua vez, afeta suas perspectivas futuras, tornando difícil quebrar o ciclo da pobreza e da fome."
+              },
+              {
+                "text": "Portanto, para combater efetivamente a fome, é fundamental abordar as causas subjacentes da pobreza e promover o desenvolvimento socioeconômico inclusivo e sustentável. Isso inclui investir em educação, saúde, emprego digno, igualdade de gênero e sistemas de proteção social, a fim de criar condições para que as pessoas superem a pobreza e tenham acesso a alimentos adequados e nutritivos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#pobresa_e_fome",
+      "dialog_node": "node_10_1685923686154",
+      "previous_sibling": "node_5_1685923558670"
+    },
+    {
+      "type": "standard",
+      "title": "Quais são os benefícios de investir em agricultura e desenvolvimento rural para combater a fome?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Investir em agricultura e desenvolvimento rural pode trazer uma série de benefícios significativos na luta contra a fome e a insegurança alimentar. Aqui estão alguns dos benefícios-chave:"
+              },
+              {
+                "text": "Melhoria da segurança alimentar: Ao fortalecer a produção agrícola e aumentar a disponibilidade de alimentos, o investimento na agricultura contribui para a melhoria da segurança alimentar. Isso significa que as pessoas têm acesso a alimentos adequados, em quantidade suficiente e de qualidade, para atender às suas necessidades nutricionais."
+              },
+              {
+                "text": "Criação de empregos e redução da pobreza: A agricultura e o desenvolvimento rural podem gerar oportunidades de emprego e renda para as comunidades rurais. Isso pode ajudar a reduzir a pobreza, proporcionando meios de subsistência sustentáveis e melhorando as condições econômicas das famílias rurais."
+              },
+              {
+                "text": "Promoção do desenvolvimento rural integrado: Além da agricultura, o desenvolvimento rural abrange outros setores, como infraestrutura, educação, saúde e acesso a serviços básicos. Investir em desenvolvimento rural integrado pode melhorar a qualidade de vida das comunidades rurais, promover o crescimento econômico inclusivo e reduzir as disparidades entre áreas rurais e urbanas."
+              },
+              {
+                "text": "Em resumo, o investimento na agricultura e desenvolvimento rural desempenha um papel crucial na promoção da segurança alimentar, redução da pobreza e melhoria geral do bem-estar das comunidades rurais. Essas medidas são fundamentais para combater a fome e alcançar os Objetivos de Desenvolvimento Sustentável relacionados à fome zero e agricultura sustentável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#investimento_fome",
+      "dialog_node": "node_2_1685923790800",
+      "previous_sibling": "node_10_1685923686154"
+    },
+    {
+      "type": "standard",
+      "title": "A importância ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A importância de acabar com a fome é imensa, pois a fome é um dos problemas mais urgentes e devastadores que afetam a humanidade. Aqui estão algumas razões pelas quais é fundamental eliminar a fome:"
+              },
+              {
+                "text": "Direito humano básico: A fome é uma violação fundamental dos direitos humanos. Todo ser humano tem o direito básico de ter acesso a alimentos suficientes e nutritivos para levar uma vida saudável e produtiva. Acabar com a fome é uma questão de justiça social e dignidade humana."
+              },
+              {
+                "text": "Saúde e nutrição: A fome crônica e a desnutrição têm efeitos devastadores na saúde das pessoas, especialmente nas crianças. A falta de acesso a uma alimentação adequada pode levar a problemas de crescimento, desenvolvimento físico e mental comprometidos e aumentar a vulnerabilidade a doenças e infecções. Acabar com a fome é essencial para garantir a saúde e o bem-estar das populações."
+              },
+              {
+                "text": "Desenvolvimento econômico: A fome cria um ciclo de pobreza e subdesenvolvimento. Quando as pessoas não têm acesso a alimentos suficientes, sua capacidade de trabalhar, aprender e progredir é severamente prejudicada. O combate à fome contribui para o desenvolvimento econômico ao possibilitar que as pessoas estejam saudáveis, produtivas e tenham oportunidades para melhorar suas vidas."
+              },
+              {
+                "text": "Estabilidade social e política: A fome pode levar a instabilidade social e política. Quando as pessoas estão desesperadas por comida, podem ocorrer conflitos, migrações forçadas e crises humanitárias. Acabar com a fome é um passo crucial para promover a paz, a estabilidade e a segurança global."
+              },
+              {
+                "text": "Sustentabilidade ambiental: A fome está intimamente ligada à sustentabilidade ambiental. A produção de alimentos inadequada, a má gestão dos recursos naturais e as mudanças climáticas contribuem para a insegurança alimentar. Ao enfrentar a fome, é necessário adotar práticas agrícolas sustentáveis, promover a conservação dos recursos naturais e mitigar os efeitos das mudanças climáticas."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#IMPORTANCIA_DO_COMBATE_A_FOME",
+      "dialog_node": "node_4_1685856546250",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Quais são as soluções propostas para combater a fome?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Combater a fome requer abordagens abrangentes que abordem as causas subjacentes e criem condições para a segurança alimentar sustentável. Aqui estão algumas soluções propostas para combater a fome:"
+              },
+              {
+                "text": "Promoção da agricultura sustentável: Investir na agricultura sustentável, incluindo o apoio à agricultura familiar, pode aumentar a produção de alimentos e melhorar a disponibilidade de alimentos nutritivos. Isso inclui fornecer acesso a recursos produtivos, como terra, água e sementes de qualidade, além de treinamento e tecnologia agrícola."
+              },
+              {
+                "text": "Melhoria da nutrição: Além de combater a fome, é essencial abordar a desnutrição e a má nutrição. Isso pode ser feito por meio de programas de educação nutricional, promoção do aleitamento materno, suplementação de micronutrientes, enriquecimento de alimentos e diversificação da dieta."
+              },
+              {
+                "text": "Fortalecimento da governança e da política: É necessário um compromisso político para combater a fome. Os governos devem adotar políticas que priorizem a segurança alimentar e a nutrição, investir em programas e infraestruturas, bem como promover a participação da sociedade civil e parcerias entre os setores público e privado."
+              },
+              {
+                "text": "Essas são apenas algumas das soluções propostas para combater a fome. É importante reconhecer que a fome é um problema complexo e multifacetado que exige esforços coordenados em nível global, nacional e local para alcançar resultados significativos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#METAS_DA_PARA_ACABAR_COM_A_FOME",
+      "dialog_node": "node_5_1685923558670",
+      "previous_sibling": "node_6_1685923369964"
+    },
+    {
+      "type": "standard",
+      "title": "Quais são os grupos populacionais mais vulneráveis à fome?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Existem vários grupos populacionais que são mais vulneráveis à fome. Embora a fome possa afetar pessoas de diferentes origens e regiões, alguns grupos enfrentam maiores desafios devido a circunstâncias específicas. Aqui estão alguns dos grupos populacionais mais vulneráveis à fome:"
+              },
+              {
+                "text": "Pessoas em situação de extrema pobreza: A pobreza é uma das principais causas da fome. Pessoas que vivem em condições de extrema pobreza muitas vezes têm dificuldade em obter alimentos suficientes para atender às suas necessidades básicas."
+              },
+              {
+                "text": "Crianças: As crianças são particularmente vulneráveis à fome. A desnutrição durante a infância pode ter efeitos duradouros no desenvolvimento físico e cognitivo, comprometendo sua saúde e capacidade de aprender."
+              },
+              {
+                "text": "Populações afetadas por conflitos e desastres naturais: Conflitos armados, deslocamentos forçados e desastres naturais, como secas, enchentes e furacões, podem interromper o acesso regular aos alimentos e destruir as infraestruturas necessárias para a produção de alimentos."
+              },
+              {
+                "text": "Esses são apenas alguns exemplos de grupos populacionais mais vulneráveis à fome. É importante abordar as causas subjacentes da fome e implementar medidas para garantir a segurança alimentar e o acesso a uma nutrição adequada para todos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#populacionais_mais_vulneráveis_à_fome",
+      "dialog_node": "node_6_1685923369964",
+      "previous_sibling": "node_10_1685855041727"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores",
+      "use_connect_to_support_prompt": "Connect to support",
+      "single_answer_clarification_prompt": "Something else"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "language": "pt-br",
+  "description": "ajudar os clientes , oque a forme se tornou",
+  "name": "GS-dialog"
+}
